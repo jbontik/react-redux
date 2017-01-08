@@ -1,5 +1,5 @@
-import React from 'react';
-import {connect,} from 'react-redux';
+import * as React from 'react';
+import {connect} from 'react-redux';
 import * as courseActions from '../../actions/courseActions';
 
 class CoursesPage extends React.Component {
@@ -23,11 +23,18 @@ class CoursesPage extends React.Component {
     this.props.dispatch(courseActions.createCourse(this.state.course));
   }
 
+  courseRow = (course, index) => {
+    return (<div key={index}>
+      {course.title}
+    </div>);
+  };
+
   render() {
     return (
       <div>
         <h1>Courses</h1>
         <h2>Add Course</h2>
+        {this.props.courses.map(this.courseRow)}
         <input
           type="text"
           value={this.state.course.title}
@@ -41,10 +48,15 @@ class CoursesPage extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownState) {
+CoursesPage.propTypes = {
+  courses: React.PropTypes.array.required
+  , dispatch: React.PropTypes.func.required
+};
+
+function mapStateToProps(state, ownProps) {
   return {
     courses: state.courseReducer
-  }
+  };
 }
 
 export default connect(mapStateToProps)(CoursesPage);
