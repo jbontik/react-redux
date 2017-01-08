@@ -7,7 +7,7 @@ class CoursesPage extends React.Component {
     this.state = {
       course: {title: ''}
     };
-    this.onTitleChange = this.onTitleChange.bind(this);
+    this.onTitleChange = this.onTitleChange.bind(this); // otherwise 'this' in the handler would reference the caller i.e. <input>
     this.onClickSave = this.onClickSave.bind(this);
   }
 
