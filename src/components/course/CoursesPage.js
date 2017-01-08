@@ -5,7 +5,7 @@ class CoursesPage extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      course: {title: null}
+      course: {title: ''}
     };
     this.onTitleChange = this.onTitleChange.bind(this);
     this.onClickSave = this.onClickSave.bind(this);
@@ -33,7 +33,7 @@ class CoursesPage extends React.Component {
         <input
           type="submit"
           value="Save"
-          onChange={this.onClickSave} />
+          onClick={this.onClickSave} />
       </div>
     );
   }
