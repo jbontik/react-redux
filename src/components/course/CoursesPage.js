@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect,} from 'react-redux';
-import *as courseActions from '../../actions/courseActions';
+import * as courseActions from '../../actions/courseActions';
 
 class CoursesPage extends React.Component {
 
